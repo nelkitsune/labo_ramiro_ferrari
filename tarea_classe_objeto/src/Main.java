@@ -1,4 +1,5 @@
-package perro;
+import perro.*;
+
 import java.awt.*;
 import java.util.Scanner;
 public class Main {
