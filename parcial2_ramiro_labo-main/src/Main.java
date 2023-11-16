@@ -1,5 +1,22 @@
 import java.util.Locale;
 import java.util.Scanner;
+// casos de prueba
+//MUTANTE
+
+  //      acaggg
+    //    aaagta
+      //  atctgt
+        //agtgtc
+     //   ctctcc
+       // cataaa
+//NO MUTANTE
+
+ //       acacgg
+  //      aaagta
+  //      ctctgt
+   //     agcgtc
+  //      ctctcc
+   //     cataaa
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -104,7 +121,6 @@ public class Main {
             for (int j = 0; j < 3; j++) {
                 if (adn[j].charAt(i) == adn[j + 1].charAt(i) && (adn[j + 1].charAt(i) == adn[j + 2].charAt(i) && adn[j + 2].charAt(i) == adn[j + 3].charAt(i))) {
                     counter++;
-                    System.out.println("test");
                     break;
                 }
             }
