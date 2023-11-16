@@ -10,4 +10,11 @@ public class Arma {
         this.danio_minimo = danio_minimo;
         this.danio_maximo = danio_maximo;
     }
+
+    public int getDanio_maximo() {
+        return danio_maximo;
+    }
+    public int getDanio_minimo() {
+        return danio_minimo;
+    }
 }
