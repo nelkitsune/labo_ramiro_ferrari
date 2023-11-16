@@ -3,11 +3,17 @@ public class Articulo {
     private double precioUnitario;
     private int cantidad;
 
+
     public Articulo(String nombre, double precioUnitario, int cantidad) {
         this.nombre = nombre;
         this.precioUnitario = precioUnitario;
         this.cantidad = cantidad;
     }
+
+    public Articulo() {
+    }
+
+
 
     public String getNombre() {
         return nombre;
