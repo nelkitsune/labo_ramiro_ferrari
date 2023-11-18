@@ -42,7 +42,7 @@ public class Inventario {
     public void setArma2(Arma arma2) {
         this.arma2 = arma2;
     }
-
+    
     public void setArma3(Arma arma3) {
         this.arma3 = arma3;
     }

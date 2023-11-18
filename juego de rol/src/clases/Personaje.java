@@ -27,25 +27,28 @@ public class Personaje {
         } else {
             System.out.println("La CA de " + objetivo.nombre + " es demasiado alta, no se inflige daño.");
         }
+
     }
-    public void  equipar_arma (Inventario arma){
+    public void  equipar_arma (){
         Scanner sc = new Scanner(System.in);
-        System.out.print("1 2 3");
+        System.out.print("que arma quieres equiparte? /n ");
         int opcion = sc.nextInt();
         inventario.arma_a_equipar(opcion);
     }
     public void setPersonaje(){
+        inventario = new Inventario();
+        poolArma = new PoolArma();
         List<String> nombresArmas = new ArrayList<>();
-        nombresArmas.add("Opcion 1 Espada de hierro");
-        nombresArmas.add("Opcion 2 Arco largo");
-        nombresArmas.add("Opcion 3 Daga afilada");
-        nombresArmas.add("Opcion 4 Maza de guerra");
-        nombresArmas.add("Opcion 5 Varita mágica");
-        nombresArmas.add("Opcion 6 Hacha de doble filo");
-        nombresArmas.add("Opcion 7 Lanza puntiaguda");
-        nombresArmas.add("Opcion 8 Bastón encantado");
-        nombresArmas.add("Opcion 9 Espadón gigante");
-        nombresArmas.add("Opcion 10 Cuchillo arrojadizo");
+            nombresArmas.add("Opcion 1 Espada de hierro");
+            nombresArmas.add("Opcion 2 Arco largo");
+            nombresArmas.add("Opcion 3 Daga afilada");
+            nombresArmas.add("Opcion 4 Maza de guerra");
+            nombresArmas.add("Opcion 5 Varita mágica");
+            nombresArmas.add("Opcion 6 Hacha de doble filo");
+            nombresArmas.add("Opcion 7 Lanza puntiaguda");
+            nombresArmas.add("Opcion 8 Bastón encantado");
+            nombresArmas.add("Opcion 9 Espadón gigante");
+            nombresArmas.add("Opcion 10 Cuchillo arrojadizo");
 
         Scanner sc = new Scanner(System.in);
         Scanner scInt = new Scanner(System.in);
@@ -70,60 +73,30 @@ public class Personaje {
             } else if (i == 1) {
                 System.out.println("ingrese el segundo arma: ");
                 opcion = scInt.nextInt();
-            } else {
+            } else{
                 System.out.println("ingrese el terccer arma: ");
                 opcion = scInt.nextInt();
             }
-            swich_equipado(opcion,i);
+            if (opcion > 0 && opcion < 11){
+                swich_equipado(opcion,i);
+            }else {
+                i -= 1;
+            }
+
         }
+        equipar_arma();
     }
 
     public int getPuntos_de_vida() {
         return puntos_de_vida;
     }
-    public void  swich_equipado(int opcion, int i){
-        switch (opcion) {
-            case 1:
-                if (i == 0){
-                    inventario.setArma1(poolArma.getListaArmas(opcion));
-                } else if (i == 1) {
-                    inventario.setArma2(poolArma.getListaArmas(opcion));
-                } else {
-                    System.out.println("ingrese el terccer arma: ");
-                    opcion = scInt.nextInt();
-                }
-                inventario.setArma1(poolArma.getListaArmas(opcion));
-                break;
-            case 2:
-                System.out.println("Dos");
-                break;
-            case 3:
-                System.out.println("Tres");
-                break;
-            case 4:
-                System.out.println("Cuatro");
-                break;
-            case 5:
-                System.out.println("Cinco");
-                break;
-            case 6:
-                System.out.println("Seis");
-                break;
-            case 7:
-                System.out.println("Siete");
-                break;
-            case 8:
-                System.out.println("Ocho");
-                break;
-            case 9:
-                System.out.println("Nueve");
-                break;
-            case 10:
-                System.out.println("Diez");
-                break;
-            default:
-                System.out.println("Número fuera de rango");
-                break;
+    public void  swich_equipado(int opcion, int i) {
+        if (i == 0) {
+            inventario.setArma1(poolArma.getListaArmas(opcion));
+        } else if (i == 1) {
+            inventario.setArma2(poolArma.getListaArmas(opcion));
+        } else {
+            inventario.setArma3(poolArma.getListaArmas(opcion));
         }
     }
 }
