@@ -17,4 +17,7 @@ public class Arma {
     public int getDanio_minimo() {
         return danio_minimo;
     }
+    public String getNombre(){
+        return nombre;
+    }
 }

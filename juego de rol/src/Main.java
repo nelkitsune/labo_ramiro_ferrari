@@ -22,11 +22,11 @@ public class Main {
         while (pj1.getPuntos_de_vida() > 0 && pj2.getPuntos_de_vida() > 0){
             i++;
             if (i % 2 == 0){
-                System.out.println("pers 1 at");
-                pj1.atacar(pj2);
+                System.out.println(pj1.getNombre()+ " ataca");
+                pj2.atacar(pj2);
             } else {
-                System.out.println("pers 2 at");
-                pj2.atacar(pj1);
+                System.out.println(pj2.getNombre()+ " ataca");
+                pj1.atacar(pj1);
             }
         }
     }

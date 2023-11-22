@@ -23,7 +23,7 @@ public class Personaje {
         int danio_infligido = this.ataque - objetivo.defensa;
         if (danio_infligido > 0) {
             puntos_de_vida = puntos_de_vida - danio_infligido;
-            System.out.println(nombre + "te hicieron " + danio_infligido + " te quedan " + puntos_de_vida + " puntos de vida");
+            System.out.println(nombre + " te hicieron " + danio_infligido + " te quedan " + puntos_de_vida + " puntos de vida");
         } else {
             System.out.println("La CA de " + objetivo.nombre + " es demasiado alta, no se inflige daño.");
         }
@@ -34,6 +34,7 @@ public class Personaje {
         System.out.print("que arma quieres equiparte? /n ");
         int opcion = sc.nextInt();
         inventario.arma_a_equipar(opcion);
+
     }
     public void setPersonaje(){
         inventario = new Inventario();
@@ -78,13 +79,21 @@ public class Personaje {
                 opcion = scInt.nextInt();
             }
             if (opcion > 0 && opcion < 11){
-                swich_equipado(opcion,i);
+                swich_equipado(opcion-1,i);
             }else {
                 i -= 1;
             }
 
         }
         equipar_arma();
+        Arma armaEnInventario = inventario.getEquipado(); // Obtienes el primer arma del inventario
+
+        if (armaEnInventario != null) {
+            String nombreArma = armaEnInventario.getNombre();
+            System.out.println("Arma equipada: " + nombreArma);
+        } else {
+            System.out.println("No hay un armas equipadas.");
+        }
     }
 
     public int getPuntos_de_vida() {
@@ -98,5 +107,8 @@ public class Personaje {
         } else {
             inventario.setArma3(poolArma.getListaArmas(opcion));
         }
+    }
+    public String getNombre(){
+        return nombre;
     }
 }

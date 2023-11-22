@@ -46,4 +46,7 @@ public class Inventario {
     public void setArma3(Arma arma3) {
         this.arma3 = arma3;
     }
+    public Arma getEquipado(){
+        return equipado;
+    }
 }
